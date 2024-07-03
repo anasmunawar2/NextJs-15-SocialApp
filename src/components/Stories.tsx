@@ -8,7 +8,7 @@ const Stories = () => {
         {/* story */}
         <div className="flex flex-col items-center gap-2 cursor-pointer">
           <Image
-            src="/emoji.png"
+            src="https://images.pexels.com/photos/26620198/pexels-photo-26620198/free-photo-of-a-group-of-people-walking-on-the-beach-at-sunset.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
             alt=""
             width={80}
             height={80}
@@ -18,7 +18,7 @@ const Stories = () => {
         </div>
         <div className="flex flex-col items-center gap-2 cursor-pointer">
           <Image
-            src="/emoji.png"
+            src="https://images.pexels.com/photos/26620198/pexels-photo-26620198/free-photo-of-a-group-of-people-walking-on-the-beach-at-sunset.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
             alt=""
             width={80}
             height={80}
@@ -28,7 +28,7 @@ const Stories = () => {
         </div>
         <div className="flex flex-col items-center gap-2 cursor-pointer">
           <Image
-            src="/emoji.png"
+            src="https://images.pexels.com/photos/26620198/pexels-photo-26620198/free-photo-of-a-group-of-people-walking-on-the-beach-at-sunset.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
             alt=""
             width={80}
             height={80}
@@ -38,7 +38,7 @@ const Stories = () => {
         </div>
         <div className="flex flex-col items-center gap-2 cursor-pointer">
           <Image
-            src="/emoji.png"
+            src="https://images.pexels.com/photos/26620198/pexels-photo-26620198/free-photo-of-a-group-of-people-walking-on-the-beach-at-sunset.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
             alt=""
             width={80}
             height={80}
@@ -48,7 +48,7 @@ const Stories = () => {
         </div>
         <div className="flex flex-col items-center gap-2 cursor-pointer">
           <Image
-            src="/emoji.png"
+            src="https://images.pexels.com/photos/26620198/pexels-photo-26620198/free-photo-of-a-group-of-people-walking-on-the-beach-at-sunset.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
             alt=""
             width={80}
             height={80}
