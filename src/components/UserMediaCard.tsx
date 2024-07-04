@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
@@ -10,6 +11,80 @@ const UserMediaCard = ({ userId }: { userId: string }) => {
         <Link href="/" className="text-blue-500 text-xs">
           See all
         </Link>
+      </div>
+      {/* bottom */}
+      <div className="flex gap-4 justify-between flex-wrap">
+        <div className="relative w-1/5 h-24">
+          <Image
+            src="https://images.pexels.com/photos/19486511/pexels-photo-19486511/free-photo-of-flowers-in-vases-on-table.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+            alt=""
+            fill
+            className="object-cover rounded-md"
+          />
+        </div>
+
+        <div className="relative w-1/5 h-24">
+          <Image
+            src="https://images.pexels.com/photos/19486511/pexels-photo-19486511/free-photo-of-flowers-in-vases-on-table.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+            alt=""
+            fill
+            className="object-cover rounded-md"
+          />
+        </div>
+
+        <div className="relative w-1/5 h-24">
+          <Image
+            src="https://images.pexels.com/photos/19486511/pexels-photo-19486511/free-photo-of-flowers-in-vases-on-table.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+            alt=""
+            fill
+            className="object-cover rounded-md"
+          />
+        </div>
+
+        <div className="relative w-1/5 h-24">
+          <Image
+            src="https://images.pexels.com/photos/19486511/pexels-photo-19486511/free-photo-of-flowers-in-vases-on-table.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+            alt=""
+            fill
+            className="object-cover rounded-md"
+          />
+        </div>
+
+        <div className="relative w-1/5 h-24">
+          <Image
+            src="https://images.pexels.com/photos/19486511/pexels-photo-19486511/free-photo-of-flowers-in-vases-on-table.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+            alt=""
+            fill
+            className="object-cover rounded-md"
+          />
+        </div>
+
+        <div className="relative w-1/5 h-24">
+          <Image
+            src="https://images.pexels.com/photos/19486511/pexels-photo-19486511/free-photo-of-flowers-in-vases-on-table.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+            alt=""
+            fill
+            className="object-cover rounded-md"
+          />
+        </div>
+
+        <div className="relative w-1/5 h-24">
+          <Image
+            src="https://images.pexels.com/photos/19486511/pexels-photo-19486511/free-photo-of-flowers-in-vases-on-table.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+            alt=""
+            fill
+            className="object-cover rounded-md"
+          />
+        </div>
+
+        <div className="relative w-1/5 h-24">
+          <Image
+            src="https://images.pexels.com/photos/19486511/pexels-photo-19486511/free-photo-of-flowers-in-vases-on-table.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+            alt=""
+            fill
+            className="object-cover rounded-md"
+          />
+        </div>
       </div>
     </div>
   );
