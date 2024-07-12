@@ -24,6 +24,28 @@ export const switchFolloe = async (userId: string) => {
           id: existingFollow.id,
         },
       });
+    } else {
+      const existingFollowRequest = await prisma.followRequest.findFirst({
+        where: {
+          senderId: currentUserId,
+          receiverId: userId,
+        },
+      });
+
+      if (existingFollowRequest) {
+        await prisma.followRequest.delete({
+          where: {
+            id: existingFollowRequest.id,
+          },
+        });
+      } else {
+        await prisma.followRequest.create({
+          data: {
+            senderId: currentUserId,
+            receiverId: userId,
+          },
+        });
+      }
     }
   } catch (error) {
     console.log(error);
