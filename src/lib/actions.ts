@@ -3,7 +3,7 @@
 import { auth } from "@clerk/nextjs/server";
 import prisma from "./client";
 
-export const switchFolloe = async (userId: string) => {
+export const switchFollow = async (userId: string) => {
   const { userId: currentUserId } = auth();
 
   if (!currentUserId) {
@@ -49,6 +49,41 @@ export const switchFolloe = async (userId: string) => {
     }
   } catch (error) {
     console.log(error);
+    throw new Error("Something went wrong!");
+  }
+};
+
+export const switchBlock = async (userId: string) => {
+  const { userId: currentUserId } = auth();
+
+  if (!currentUserId) {
+    throw new Error("User is not Authenticated!!");
+  }
+
+  try {
+    const existingBlock = await prisma.block.findFirst({
+      where: {
+        blockerId: currentUserId,
+        blockedId: userId,
+      },
+    });
+
+    if (existingBlock) {
+      await prisma.block.delete({
+        where: {
+          id: existingBlock.id,
+        },
+      });
+    } else {
+      await prisma.block.create({
+        data: {
+          blockerId: currentUserId,
+          blockedId: userId,
+        },
+      });
+    }
+  } catch (err) {
+    console.log(err);
     throw new Error("Something went wrong!");
   }
 };
