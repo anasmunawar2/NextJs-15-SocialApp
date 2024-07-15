@@ -4,13 +4,11 @@ import { switchBlock, switchFollow } from "./../../lib/actions";
 
 const UserInfoCardInteraction = ({
   userId,
-  currentUserId,
   isUserBlocked,
   isFollowing,
   isFollowingSent,
 }: {
   userId: string;
-  currentUserId: string;
   isUserBlocked: boolean;
   isFollowing: boolean;
   isFollowingSent: boolean;
