@@ -152,7 +152,11 @@ export const declineFollowRequest = async (userId: string) => {
   }
 };
 
-export const updateProfile = async (formData: FormData, cover: string) => {
+export const updateProfile = async (
+  prevState: { success: boolean; error: boolean },
+  payload: { formData: FormData; cover: string }
+) => {
+  const { formData, cover } = payload;
   const fields = Object.fromEntries(formData);
 
   const filteredFields = Object.fromEntries(
