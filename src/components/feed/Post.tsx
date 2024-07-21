@@ -15,30 +15,33 @@ const Post = ({ post }: { post: FeedPostType }) => {
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-4">
           <Image
-            src="https://images.pexels.com/photos/1043474/pexels-photo-1043474.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+            src={post.user.avatar || "/noAvatar.png"}
             alt=""
             width={40}
             height={40}
             className="w-10 h-10 rounded-full"
           />
-          <span className="font-medium">John Doe</span>
+          <span className="font-medium">
+            {post.user.name && post.user.surname
+              ? post.user.name + " " + post.user.surname
+              : post.user.username}
+          </span>
         </div>
         <Image src="/more.png" alt="" width={16} height={16} />
       </div>
       {/* desc */}
       <div className="flex flex-col gap-4">
-        <div className="w-full min-h-96 relative">
-          <Image
-            src="https://images.pexels.com/photos/25751524/pexels-photo-25751524/free-photo-of-a-view-of-the-budapest-river-from-a-hill.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
-            alt=""
-            fill
-            className="object-cover rounded-md"
-          />
-        </div>
-        <p>
-          It is a long established fact that a reader will be distracted by the
-          readable content of a page when looking at its layout.{" "}
-        </p>
+        {post.img && (
+          <div className="w-full min-h-96 relative">
+            <Image
+              src={post.img}
+              alt=""
+              fill
+              className="object-cover rounded-md"
+            />
+          </div>
+        )}
+        <p>{post.desc}</p>
       </div>
       {/* interaction */}
       <div className="flex items-center justify-between text-sm my-4">
@@ -82,7 +85,7 @@ const Post = ({ post }: { post: FeedPostType }) => {
             />
             <span className="text-gray-300">|</span>
             <span className="text-gray-500">
-              123<span className="hidden md:inline"> Shares</span>
+              123<span className="hidden md:inline">Share</span>
             </span>
           </div>
         </div>
