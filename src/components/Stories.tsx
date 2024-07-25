@@ -1,61 +1,42 @@
+import prisma from "@/lib/client";
+import { auth } from "@clerk/nextjs/server";
 import Image from "next/image";
 import React from "react";
+import StoryList from "./StoryList";
 
-const Stories = () => {
+const Stories = async () => {
+  const { userId: currentUserId } = auth();
+
+  if (!currentUserId) return null;
+
+  const stories = prisma.story.findMany({
+    where: {
+      expiresAt: {
+        gt: new Date(),
+      },
+      OR: [
+        {
+          user: {
+            followers: {
+              some: {
+                followerId: currentUserId,
+              },
+            },
+          },
+        },
+        {
+          userId: currentUserId,
+        },
+      ],
+    },
+    include: {
+      user: true,
+    },
+  });
   return (
     <div className="p-4 bg-white rounded-lg shadow-md overflow-scroll text-xs scrollbar-hide">
       <div className="flex gap-8 w-max">
-        {/* story */}
-        <div className="flex flex-col items-center gap-2 cursor-pointer">
-          <Image
-            src="https://images.pexels.com/photos/26620198/pexels-photo-26620198/free-photo-of-a-group-of-people-walking-on-the-beach-at-sunset.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
-            alt=""
-            width={80}
-            height={80}
-            className="w-20 h-20 rounded-full ring-2"
-          />
-          <span className="font-medium">John</span>
-        </div>
-        <div className="flex flex-col items-center gap-2 cursor-pointer">
-          <Image
-            src="https://images.pexels.com/photos/26620198/pexels-photo-26620198/free-photo-of-a-group-of-people-walking-on-the-beach-at-sunset.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
-            alt=""
-            width={80}
-            height={80}
-            className="w-20 h-20 rounded-full ring-2"
-          />
-          <span className="font-medium">John</span>
-        </div>
-        <div className="flex flex-col items-center gap-2 cursor-pointer">
-          <Image
-            src="https://images.pexels.com/photos/26620198/pexels-photo-26620198/free-photo-of-a-group-of-people-walking-on-the-beach-at-sunset.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
-            alt=""
-            width={80}
-            height={80}
-            className="w-20 h-20 rounded-full ring-2"
-          />
-          <span className="font-medium">John</span>
-        </div>
-        <div className="flex flex-col items-center gap-2 cursor-pointer">
-          <Image
-            src="https://images.pexels.com/photos/26620198/pexels-photo-26620198/free-photo-of-a-group-of-people-walking-on-the-beach-at-sunset.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
-            alt=""
-            width={80}
-            height={80}
-            className="w-20 h-20 rounded-full ring-2"
-          />
-          <span className="font-medium">John</span>
-        </div>
-        <div className="flex flex-col items-center gap-2 cursor-pointer">
-          <Image
-            src="https://images.pexels.com/photos/26620198/pexels-photo-26620198/free-photo-of-a-group-of-people-walking-on-the-beach-at-sunset.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
-            alt=""
-            width={80}
-            height={80}
-            className="w-20 h-20 rounded-full ring-2"
-          />
-          <span className="font-medium">John</span>
-        </div>
+        <StoryList stories={stories} userId={currentUserId} />
       </div>
     </div>
   );
